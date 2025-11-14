@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mario JS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>🍄 Simple Mario Game 🍄</h1>
+
+    <div class="game-container">
+
+        <div class ="ui">
+            <p>Score <span id="score">0</span></p>
+            <p>Level <span id="level">1</span></p>
+            <p>Lives <span id="lives">3</span></p>
+        </div>
+        
+        <div id="game-area">
+            <div id="mario"></div>
+        </div>
+        
+        <div class="controls">
+            <p>Controls:</p>
+            <p>Arrow Keys: Move Left/Right</p>
+            <p>Down Arrow: Enter Pipe (when on top of it)</p>
+        </div>
+
+    </div>
+    
+    <div class="game-over">
+        <h2 id="game-over-title">Game Over</h2>
+        <p>Score:<span id="final-score">0</span></p>
+        <button id="restart-button">Play Again</button>
+    </div>
+</body>
+	<script src="app.js"></script>
+
+</html>
