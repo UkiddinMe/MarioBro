@@ -141,7 +141,28 @@ body {
     font-size: 14px;
 }
 
-.game-over {
+#game-over {
     position: absolute;
-    top: 50%
+    top: 50%;
+    border: 3px solid #fff;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 1000;
+
+}
+
+#restart-button {
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 10px;
+}
+
+#restart-button:hover {
+    background-color: #ff5252;
 }
