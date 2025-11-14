@@ -104,12 +104,12 @@ const levels = [
 function initGame() {
     console.log("initGame");
     loadLevel(gameState.level - 1)
-    //gameLoop()
+    gameLoop()
 }
 
 function loadLevel(levelIndex) {
     if (levelIndex >= levels.length) {
-        //showGameOver(true)
+        showGameOver(true)
         return
     }
 
@@ -196,7 +196,19 @@ document.addEventListener('keyup', (e) => {
     gameState.keys[e.code] = false
 })
 
+//Game loop
+function gameLoop() {
+    if (!gameState.gameRunning) return
 
+    update()
+    requestAnimationFrame(gameLoop)
+}
+
+// Update Game Logic
+function update()
+{
+    
+}
 
 // Start game
 initGame()
