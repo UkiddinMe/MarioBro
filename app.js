@@ -1,6 +1,5 @@
 // Game constants
 
-console.log("si entra")
 const GRAVITY = 0.5
 const JUMP_FORCE = -12
 const MOVE_SPEED = 2.5
@@ -102,7 +101,7 @@ const levels = [
 
 // Initialize game
 function initGame() {
-    console.log("initGame");
+    // console.log("initGame");
     loadLevel(gameState.level - 1)
     gameLoop()
 }
@@ -129,6 +128,9 @@ function loadLevel(levelIndex) {
     player.element.className = ''
     updateElementPosition(player.element, player.x, player.y)
 
+    /////
+    ///// CREAZIONE DEGLI ELEMENTI HTML RELATIVI ALLE ENTITA'
+    /////
     // Create platforms
     level.platforms.forEach((platformData, index) => {
         const platform = createElement('div', `platform ${platformData.type}`, {
@@ -167,7 +169,7 @@ function loadLevel(levelIndex) {
 
     // Create coins
     level.coins.forEach((coinData, index) => {
-        const coin = createElement('iv', 'coin', {
+        const coin = createElement('div', 'coin', {
             left: coinData.x + 'px',
             top: coinData.y + 'px'
         })
@@ -201,6 +203,8 @@ function loadLevel(levelIndex) {
             id: 'block-' + index
         })
     })
+
+    //Create Pipes
 }
 
 function updateElementPosition(element, x, y) {
@@ -264,7 +268,32 @@ function gameLoop() {
 // Update Game Logic
 function update()
 {
-    
+    console.log(gameState.keys)
+    //Handles left and right
+    if (gameState.keys['ArrowLeft'] || gameState.keys['KeyA']) {
+        player.velocityX = -MOVE_SPEED
+    } else if (gameState.keys['ArrowRight'] || gameState.keys['KeyD']) {
+        player.velocityX = MOVE_SPEED
+    } else {
+        player.velocityX *= 0.8
+    }
+
+    //Handle jumping
+    if (gameState.keys['Space'] && player.grounded) {
+        player.velocityY = JUMP_FORCE
+        player.grounded = false
+    }
+
+    //Apply gravity
+    if (!player.grounded) {
+        player.velocityY += GRAVITY
+    }
+
+    //Actually change the x and y values
+    player.x += player.velocityX
+    player.y += player.velocityY
+
+    updateElementPosition(player.element, player.x, player.y)
 }
 
 // Start game
