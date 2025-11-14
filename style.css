@@ -44,6 +44,7 @@ body {
 }
 
 #mario.big {
+    position: absolute;
     width: 40px;
     height: 40px;
     background-image: url('https://i.imgur.com/Wb1qfhK.png');
@@ -78,18 +79,21 @@ body {
 }
 
 .enemy {
+    position: absolute;
     width: 20px;
     height: 20px;
     background-image: url('https://i.imgur.com/KPO3fR9.png');
 }
 
 .enemy.purple {
+    position: absolute;
     width: 20px;
     height: 20px;
     background-image: url('https://i.imgur.com/SvV4ueD.png');
 }
 
 .coin {
+    position: absolute;
     width: 20px;
     height: 20px;
     background-image: url('https://i.imgur.com/wbKxhcd.png');
@@ -106,41 +110,48 @@ body {
 }
 
 .surprise-block {
+    position: absolute;
     width: 20px;
     height: 20px;
     background-image: url('https://i.imgur.com/gesQ1KP.png');
 }
 
 .surprise-block.hit {
+    position: absolute;
     width: 20px;
     height: 20px;
     background-image: url('https://i.imgur.com/bdrLpi6.png');
 }
 
 .pipe {
+    position: absolute;
     width: 40px;
     height: 40px;
 }
 
 .pipe-top {
+    position: absolute;
     width: 20px;
     height: 20px;
     background-image: url('https://i.imgur.com/ReTPiWY.png');
 }
 
 .pipe-top-right {
+    position: absolute;
     width: 20px;
     height: 20px;
     background-image: url('https://i.imgur.com/hj2GK4n.png');
 }
 
 .pipe-bottom {
+    position: absolute;
     width: 20px;
     height: 20px;
     background-image: url('https://i.imgur.com/c1cYSbt.png');
 }
 
 .pipe-bottom-right {
+    position: absolute;
     width: 20px;
     height: 20px;
     background-image: url('https://i.imgur.com/nqQ79eI.png');

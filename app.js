@@ -144,6 +144,63 @@ function loadLevel(levelIndex) {
             id: 'platform-' + index
         })
     })
+
+    // Create enemies
+    level.enemies.forEach((enemyData, index) => {
+        const enemy = createElement('div', `enemy ${enemyData.type}`, {
+            left: enemyData.x + 'px',
+            top: enemyData.y + 'px'
+        })
+        gameArea.appendChild(enemy)
+        gameObjects.enemies.push({
+            element: enemy,
+            x: enemyData.x,
+            y: enemyData.y,
+            width: 20,
+            height: 20,
+            direction: -1,
+            speed: ENEMY_SPEED,
+            id: 'enemy-' + index,
+            alive: true
+        })
+    })
+
+    // Create coins
+    level.coins.forEach((coinData, index) => {
+        const coin = createElement('iv', 'coin', {
+            left: coinData.x + 'px',
+            top: coinData.y + 'px'
+        })
+        gameArea.appendChild(coin)
+        gameObjects.coins.push({
+            element: coin,
+            x: coinData.x,
+            y: coinData.y,
+            width: 20,
+            height: 20,
+            collected: false,
+            id: 'coin-' + index
+        })
+    })
+
+    // Create surprise blocks
+    level.surpriseBlocks.forEach((blockData, index) => {
+        const block = createElement('div', 'surprise-block', {
+            left: blockData.x + 'px',
+            top: blockData.y + 'px'
+        })
+        gameArea.appendChild(block)
+        gameObjects.surpriseBlocks.push({
+            element:block,
+            x: blockData.x,
+            y: blockData.y,
+            width: 20,
+            height: 20,
+            type: blockData.type,
+            hit: false,
+            id: 'block-' + index
+        })
+    })
 }
 
 function updateElementPosition(element, x, y) {
