@@ -96,3 +96,40 @@ const levels = [
         ]
     }
 ]
+
+
+// Initialize game
+function initGame() {
+    loadLevel(gameState.level)
+    gameLoop()
+}
+
+function loadLevel(levelIndex) {
+    if (levelIndex >= levels.length) {
+        //showGameOver(true)
+        return
+    }
+
+    //Clearing existing objects
+    // clearLevel()
+
+    const level = levels[levelIndex]
+    const gameArea = document.getElementById('game-area')
+
+    // Reset player
+    player.x = 50
+    player.y = 300
+    player.velocityX = 0
+    player.velocityY = 0
+    player.big = false
+    player.bigTimer = 0
+    player.element.className = ''
+    updateElementPosition(player, element, player.x, player.x)
+
+    
+}
+
+function updateElementPosition(element, x, y) {
+    element.style.left = x + 'px'
+    element.style.top = y + 'px'
+}
