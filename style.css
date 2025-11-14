@@ -60,6 +60,12 @@ body {
     background-image: url('https://i.imgur.com/pogC9x5.png');
 }
 
+.platform.floating {
+    width: 20px;
+    height: 20px;
+    background-image: url('https://i.imgur.com/pogC9x5.png');
+}
+
 .platform.blue {
     width: 20px;
     height: 20px;
