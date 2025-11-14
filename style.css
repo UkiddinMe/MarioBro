@@ -50,24 +50,28 @@ body {
 }
 
 .platform {
+    position: absolute;
     width: 20px;
     height: 20px;
     background-image: url('https://i.imgur.com/M6rwarW.png');
 }
 
 .platform.ground {
+    position: absolute;
     width: 20px;
     height: 20px;
     background-image: url('https://i.imgur.com/pogC9x5.png');
 }
 
 .platform.floating {
+    position: absolute;
     width: 20px;
     height: 20px;
     background-image: url('https://i.imgur.com/pogC9x5.png');
 }
 
 .platform.blue {
+    position: absolute;
     width: 20px;
     height: 20px;
     background-image: url('https://i.imgur.com/fVscIbn.png');
@@ -76,13 +80,13 @@ body {
 .enemy {
     width: 20px;
     height: 20px;
-    background-image: url('https://i.imgur.com/KP03fR9.png');
+    background-image: url('https://i.imgur.com/KPO3fR9.png');
 }
 
 .enemy.purple {
     width: 20px;
     height: 20px;
-    background-image: url('https://i.imgur.com/SvV4ue0.png');
+    background-image: url('https://i.imgur.com/SvV4ueD.png');
 }
 
 .coin {

@@ -1,4 +1,6 @@
 // Game constants
+
+console.log("si entra")
 const GRAVITY = 0.5
 const JUMP_FORCE = -12
 const MOVE_SPEED = 2.5
@@ -100,8 +102,9 @@ const levels = [
 
 // Initialize game
 function initGame() {
-    loadLevel(gameState.level)
-    gameLoop()
+    console.log("initGame");
+    loadLevel(gameState.level - 1)
+    //gameLoop()
 }
 
 function loadLevel(levelIndex) {
@@ -124,12 +127,36 @@ function loadLevel(levelIndex) {
     player.big = false
     player.bigTimer = 0
     player.element.className = ''
-    updateElementPosition(player, element, player.x, player.x)
+    updateElementPosition(player.element, player.x, player.y)
 
-    
+    // Create platforms
+    level.platforms.forEach((platformData, index) => {
+        const platform = createElement('div', `platform ${platformData.type}`, {
+            left: platformData.x + 'px',
+            top: platformData.y + 'px',
+            width: platformData.width + 'px',
+            height: platformData.height + 'px'
+        })
+        gameArea.appendChild(platform)
+        gameObjects.platforms.push({
+            element: platform,
+            ...platformData,
+            id: 'platform-' + index
+        })
+    })
 }
 
 function updateElementPosition(element, x, y) {
     element.style.left = x + 'px'
     element.style.top = y + 'px'
+}
+
+// Start game
+initGame()
+
+function createElement(type, className, styles = {}) {
+    const element = document.createElement('div')
+    element.className = className
+    Object.assign(element.style, styles)
+    return element
 }
