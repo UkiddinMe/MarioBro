@@ -151,9 +151,6 @@ function updateElementPosition(element, x, y) {
     element.style.top = y + 'px'
 }
 
-// Start game
-initGame()
-
 function createElement(type, className, styles = {}) {
     const element = document.createElement('div')
     element.className = className
@@ -185,3 +182,21 @@ function clearLevel() {
         pipes: []
     }
 }
+
+//Input handling 
+document.addEventListener('keydown', (e) => {
+    gameState.keys[e.code] = true
+    
+    if (e.code === "Space") {
+        e.preventDefault()
+    }
+})
+
+document.addEventListener('keyup', (e) => {
+    gameState.keys[e.code] = false
+})
+
+
+
+// Start game
+initGame()
