@@ -162,7 +162,7 @@ body {
     border-radius: 10px;
     text-align: center;
     z-index: 1000;
-
+    display: none
 }
 
 #restart-button {

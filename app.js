@@ -114,7 +114,7 @@ function loadLevel(levelIndex) {
     }
 
     //Clearing existing objects
-    // clearLevel()
+    clearLevel()
 
     const level = levels[levelIndex]
     const gameArea = document.getElementById('game-area')
@@ -159,4 +159,29 @@ function createElement(type, className, styles = {}) {
     element.className = className
     Object.assign(element.style, styles)
     return element
+}
+
+function showGameOver(won) {
+    gameState.gameRunning = false 
+    document.getElementById('game-over-title').textContent = won ? 'Congratulations! You won!' : 'Game over!';
+    document.getElementById('finalscore').textContent =  gameState.score;
+    document.getElementById('game-over').style.display = 'block';
+}
+
+function clearLevel() {
+    // const gameArea = document.getElementById('game-area');
+
+    Object.values(gameObjects).flat().forEach(obj => {
+        if (obj.element && obj.element.parentNode) {
+            obj.element.remove()
+        }
+    })
+
+    gameObjects = {
+        platforms: [],
+        enemies: [],
+        coins: [],
+        surpriseBlocks: [],
+        pipes: []
+    }
 }
